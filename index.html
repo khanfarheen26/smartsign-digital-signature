@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Signature App</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script&family=Pacifico&family=Satisfy&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>🖊 Digital Signature </h2>
+
+        <!-- PDF Upload -->
+        <input type="file" id="pdfUpload" class="form-control-file" accept="application/pdf" />
+
+        <div id="pdfWrapper">
+            <canvas id="pdfCanvas"></canvas>
+        </div>
+
+        <hr>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <div class="block">
+                <p>Pen Color</p>
+                <input type="color" id="colorPicker" class="form-control" value="#000000">
+            </div>
+            <div class="block">
+                <p>Background</p>
+                <input type="color" id="canvasColor" class="form-control" value="#ffffff">
+            </div>
+            <div class="block">
+                <p>Pen Size</p>
+                <select id="penSize" class="form-control">
+                    <option value="2">2px</option>
+                    <option value="5" selected>5px</option>
+                    <option value="10">10px</option>
+                    <option value="20">20px</option>
+                </select>
+            </div>
+        </div>
+
+        <h4>✍️ Sign Here</h4>
+        <canvas id="signCanvas" width="500" height="200"></canvas>
+
+        <div class="toolbar">
+            <button class="btn btn-danger" id="clearButton">Clear</button>
+            <button class="btn btn-info" id="undoButton">Undo</button>
+            <button class="btn btn-secondary" id="redoButton">Redo</button>
+            <button class="btn btn-success" id="saveButton">Save Signature</button>
+            <button class="btn btn-warning" id="retrieveButton">Retrieve Saved</button>
+        </div>
+
+        <!-- AI-style Typed Signature -->
+        <div class="toolbar">
+            <input type="text" id="typedName" class="form-control" placeholder="Type your name">
+            <button class="btn btn-primary" id="aiGenerate">Generate AI-Style Signature</button>
+        </div>
+
+        <div class="toolbar">
+            <button class="btn btn-primary" id="addSign">Place on PDF</button>
+            <button class="btn btn-dark" id="downloadPDF">Download Signed PDF</button>
+        </div>
+
+        <div class="toolbar">
+            <input type="text" id="signerName" class="form-control" placeholder="Your Name">
+            <input type="email" id="signerEmail" class="form-control" placeholder="Your Email">
+        </div>
+    </div>
+
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
